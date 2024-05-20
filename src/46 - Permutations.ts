@@ -1,24 +1,26 @@
 export {}; // Necessary in order to avoid TS errors
 
 function permute(nums: number[]): number[][] {
-  const recursive = (arr: number[]): number[][] => {
-    if (arr.length === 1) {
-      return [arr];
+  const taken: number[] = [];
+  const left: number[] = nums.slice();
+  const result: number[][] = [];
+
+  const backtrack = (): void => {
+    if (left.length === 1) {
+      result.push([...taken, ...left]);
+      return;
     }
 
-    const result: number[][] = [];
-
-    for (let i = 0; i < arr.length; i++) {
-      const rest = arr.slice();
-      const head = rest.splice(i, 1);
-
-      for (const a of recursive(rest)) {
-        result.push([...head, ...a]);
-      }
+    for (let i = 0; i < left.length; i++) {
+      const n = left.splice(i, 1)[0];
+      taken.push(n);
+      backtrack();
+      taken.pop();
+      left.splice(i, 0, n);
     }
-
-    return result;
   };
 
-  return recursive(nums);
+  backtrack();
+
+  return result;
 }
