@@ -8,6 +8,9 @@
   "dependencies": {
     "@datastructures-js/priority-queue": "^6.3.1",
     "@datastructures-js/queue": "^4.2.3",
-    "lodash": "^4.17.21"
+    "@types/node": "^20.12.12",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   }
 }
