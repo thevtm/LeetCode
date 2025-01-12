@@ -17,8 +17,8 @@ function findDiagonalOrder(mat: number[][]): number[] {
     const is_zig = i % 2 == 0;
 
     if (is_zig) {
-      let x = Math.max(0, i - (height - 1));
       let y = Math.min(i, height - 1);
+      let x = Math.max(0, i - y);
 
       result[index++] = mat[y][x];
 
