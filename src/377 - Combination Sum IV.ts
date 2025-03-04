@@ -1,29 +1,25 @@
 export {}; // Necessary in order to avoid TS errors
 
 function combinationSum4(nums: number[], target: number): number {
-  let sum: number = 0;
-  let result: number = 0;
+  nums.sort((a, b) => a - b);
 
-  const backtrack = (): void => {
-    if (sum === target) {
-      result++;
-      return;
+  const cache = new Map<number, number>();
+  cache.set(0, 1);
+
+  const dp = (remainder: number): number => {
+    if (cache.has(remainder)) return cache.get(remainder)!;
+
+    let combinations = 0;
+
+    for (let i = 0; i < nums.length && remainder >= nums[i]; i++) {
+      combinations += dp(remainder - nums[i]);
     }
 
-    if (sum > target) {
-      return;
-    }
-
-    for (let i = 0; i < nums.length; i++) {
-      const n = nums[i];
-
-      sum += n;
-      backtrack();
-      sum -= n;
-    }
+    cache.set(remainder, combinations);
+    return combinations;
   };
 
-  backtrack();
+  const result = dp(target);
 
   return result;
 }
