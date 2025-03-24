@@ -173,4 +173,27 @@ const union = (node_a: number, node_b: number): void => {
 
   disjointed_set[node_a] = disjointed_set[node_b] = disjointed_set[old_parent] = new_parent;
 };
+
+for (const [a, b] of edges) {
+  union(a, b);
+}
+```
+
+## Merge Intervals / Ranges
+
+```TypeScript
+intervals.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+const merged_intervals: [number, number][] = [intervals[0]];
+
+for (let i = 1; i < intervals.length; i++) {
+  const [interval_start, interval_end] = intervals[i];
+  const last_interval = merged_intervals[merged_intervals.length - 1];
+  const [last_interval_start, last_interval_end] = last_interval;
+
+  if (interval_start >= last_interval_start && interval_start <= last_interval_end) {
+    last_interval[1] = Math.max(interval_end, last_interval_end);
+  } else {
+    merged_intervals.push(intervals[i]);
+  }
+}
 ```
