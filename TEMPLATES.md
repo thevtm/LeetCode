@@ -35,48 +35,45 @@ function binary_search_template_1(nums: number[], target: number): number {
 - [Dijkstra's algorithm in 3 minutes - YouTube](https://www.youtube.com/watch?v=_lHSawdgXpI)
 
 ```TypeScript
-function dijkstra(
-  edges_for_node: Map<number, [number, number][]>,
-  num_of_nodes: number,
-  starting_node: number
-): number[] {
-  const distances = new Array<number>(num_of_nodes);
-  distances[starting_node] = 0;
+const num_of_nodes = n;
+const starting_node = 0;
 
-  const visited_nodes = new Set();
-  const nodes_to_visit = new Set([starting_node]);
+const distances = new Array<number>(num_of_nodes);
+distances[starting_node] = 0;
 
-  while (nodes_to_visit.size > 0) {
-    let closest_node: number;
-    let closest_node_distance = Infinity;
+const visited_nodes = new Set();
+const nodes_to_visit = new Set([starting_node]);
 
-    for (const n of nodes_to_visit) {
-      if (distances[n] > closest_node_distance) continue;
+while (nodes_to_visit.size > 0) {
+  let closest_node: number;
+  let closest_node_distance = Infinity;
 
-      closest_node = n;
-      closest_node_distance = distances[n];
-    }
+  for (const n of nodes_to_visit) {
+    if (distances[n] > closest_node_distance) continue;
 
-    visited_nodes.add(closest_node!);
-    nodes_to_visit.delete(closest_node!);
-
-    const closest_node_edges = edges_for_node.get(closest_node!);
-
-    if (closest_node_edges === undefined) continue;
-
-    for (const [connected_node, weight] of closest_node_edges) {
-      if (visited_nodes.has(connected_node)) continue;
-      nodes_to_visit.add(connected_node);
-
-      const new_distance = closest_node_distance + weight;
-
-      if (distances[connected_node] === undefined || distances[connected_node] > new_distance)
-        distances[connected_node] = new_distance;
-    }
+    closest_node = n;
+    closest_node_distance = distances[n];
   }
 
-  return distances;
+  visited_nodes.add(closest_node!);
+  nodes_to_visit.delete(closest_node!);
+
+  const closest_node_edges = adjacency_list.get(closest_node!);
+
+  if (closest_node_edges === undefined) continue;
+
+  for (const [connected_node, weight] of closest_node_edges) {
+    if (visited_nodes.has(connected_node)) continue;
+    nodes_to_visit.add(connected_node);
+
+    const new_distance = closest_node_distance + weight;
+
+    if (distances[connected_node] === undefined || distances[connected_node] > new_distance)
+      distances[connected_node] = new_distance;
+  }
 }
+
+console.log(distances);
 ```
 
 ## Graph
@@ -182,6 +179,8 @@ for (const [a, b] of edges) {
 ## Merge Intervals / Ranges
 
 ```TypeScript
+const intervals: [number, number][]
+
 intervals.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
 const merged_intervals: [number, number][] = [intervals[0]];
 
@@ -196,4 +195,6 @@ for (let i = 1; i < intervals.length; i++) {
     merged_intervals.push(intervals[i]);
   }
 }
+
+console.log("merged_intervals", merged_intervals)
 ```
