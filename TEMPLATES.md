@@ -198,3 +198,67 @@ for (let i = 1; i < intervals.length; i++) {
 
 console.log("merged_intervals", merged_intervals)
 ```
+
+## Boyer-Moore Majority Vote Algorithm
+
+- Find the number that occurs at least `n/2` times
+
+```TypeScript
+let candidate = nums[0];
+let count = 1;
+
+for (let i = 1; i < nums.length; i++) {
+  if (nums[i] === candidate) {
+    count++;
+  } else {
+    if (count === 1) {
+      candidate = nums[i];
+      count = 1;
+    } else {
+      count--;
+    }
+  }
+}
+
+console.log("candidate", candidate, "count", count);
+```
+
+## Is Within Square
+
+```TypeScript
+  const is_position_within_bounds = ([x, y]: [number, number]): boolean => x >= 0 && x < width && y >= 0 && y < height;
+```
+
+## Directions
+
+```TypeScript
+const DIRECTIONS: [number, number][] = [
+  [-1, 0],
+  [1, 0],
+  [0, 1],
+  [0, -1],
+];
+```
+
+## Sum 2D Vector / Position
+
+```TypeScript
+const vec_2d_sum = (a: [number, number], b: [number, number]): [number, number] => [a[0] + b[0], a[1] + b[1]];
+```
+
+## Grid
+
+```TypeScript
+const grid = Array(rows).fill().map(() => Array(cols).fill(Infinity));
+```
+
+## Priority Queue
+
+```TypeScript
+const queue = new MinPriorityQueue((v) => v.value);
+queue.enqueue({ value: 0, position: [0, 0] });
+
+while (!queue.isEmpty()) {
+  const { value, position } = queue.dequeue();
+}
+```
