@@ -262,3 +262,13 @@ while (!queue.isEmpty()) {
   const { value, position } = queue.dequeue();
 }
 ```
+
+## Tree Node Interface
+
+```TypeScript
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+```
