@@ -1,5 +1,6 @@
-import * as _ from "lodash";
+import * as lodash_ from "lodash";
 import { Queue as QueueImported } from "@datastructures-js/queue";
+import { Deque as DequeImported } from "@datastructures-js/deque";
 import {
   PriorityQueue as PriorityQueueImported,
   MinPriorityQueue as MinPriorityQueueImported,
@@ -10,10 +11,13 @@ import {
 
 declare global {
   // lodash
-  const _: typeof _;
+  const _: typeof lodash_;
 
   // @datastructures-js/queue
   class Queue<T> extends QueueImported<T> {}
+
+  // @datastructures-js/deque
+  class Deque<T> extends DequeImported<T> {}
 
   // @datastructures-js/priority-queue
   class PriorityQueue<T> extends PriorityQueueImported<T> {}
