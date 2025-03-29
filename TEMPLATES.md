@@ -308,3 +308,18 @@ if (n > 1) {
 
 console.log(prime_factors);
 ```
+
+## Monotonic Stack
+
+- Used to keep track of the closest highest/lowest neighbor
+
+```TypeScript
+const stack: number[] = [];
+const monotonic_stack = new Array<number>(nums.length);
+
+for (let i = nums.length - 1; i >= 0; i--) {
+  while (stack.length > 0 && nums[stack[stack.length - 1]] <= nums[i]) stack.pop()!;
+  monotonic_stack[i] = stack[stack.length - 1] ?? - 1;
+  stack.push(i);
+}
+```
