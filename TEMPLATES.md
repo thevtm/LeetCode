@@ -323,3 +323,24 @@ for (let i = nums.length - 1; i >= 0; i--) {
   stack.push(i);
 }
 ```
+
+## Fast Modular Exponential
+
+```TypeScript
+const fast_modular_exponentiation = (base: bigint, exponent: bigint, modulus: bigint): bigint => {
+  base = base % modulus;
+
+  let result = 1n;
+
+  while (exponent > 0) {
+    if (exponent % 2n === 1n) {
+      result = (result * base) % modulus;
+    }
+
+    base = (base * base) % modulus;
+    exponent /= 2n;
+  }
+
+  return result;
+};
+```
