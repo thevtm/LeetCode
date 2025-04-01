@@ -1,11 +1,9 @@
 # Templates
 
-## Matrix
+## Matrix / Grid
 
 ```TypeScript
-function make_matrix(rows: number, columns: number) {
-  return Array.from({ length: rows }, () => Array(columns));
-}
+const matrix = Array.from({ length: n }, () => Array<number>(n + 1));
 ```
 
 ## Binary Search
@@ -244,12 +242,6 @@ const DIRECTIONS: [number, number][] = [
 
 ```TypeScript
 const vec_2d_sum = (a: [number, number], b: [number, number]): [number, number] => [a[0] + b[0], a[1] + b[1]];
-```
-
-## Grid
-
-```TypeScript
-const grid = Array(rows).fill().map(() => Array(cols).fill(Infinity));
 ```
 
 ## Priority Queue
