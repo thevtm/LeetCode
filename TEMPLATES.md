@@ -336,3 +336,16 @@ const fast_modular_exponentiation = (base: bigint, exponent: bigint, modulus: bi
   return result;
 };
 ```
+
+## Post Order Traversal
+
+- Traverses leaves first.
+
+```TypeScript
+const post_order_traversal = (node: TreeNode, depth: number = 0): number => {
+  const deepest_left = node.left === null ? -1 : postorder_traversal(node.left, depth + 1);
+  const deepest_right = node.right === null ? -1 : postorder_traversal(node.right, depth + 1);
+
+  return Math.max(depth, deepest_left, deepest_right);
+};
+```
