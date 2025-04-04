@@ -1,4 +1,5 @@
 import * as lodash_ from "lodash";
+
 import { Queue as QueueImported } from "@datastructures-js/queue";
 import { Deque as DequeImported } from "@datastructures-js/deque";
 import {
