@@ -32,17 +32,21 @@ function canPartition_ordered_set(nums: number[]): boolean {
 
   if (sum % 2 === 1) return false;
 
-  const foboar = new OrderedSet<number>([0]);
+  const possible_sums_set = new OrderedSet<number>([0]);
 
   for (const num of nums) {
     const nums_to_add: number[] = [];
 
-    for (let it = foboar.begin(); !it.equals(foboar.end()) && it.pointer + num <= half; it.next()) {
-      nums_to_add.push(it.pointer + num);
+    for (let it = possible_sums_set.begin(); !it.equals(possible_sums_set.end()); it.next()) {
+      const x = it.pointer + num;
+      if (x > half) break;
+      if (possible_sums_set.find(x).equals(possible_sums_set.end())) nums_to_add.push(x);
     }
+
+    for (const num of nums_to_add) possible_sums_set.insert(num);
   }
 
-  return foboar.find(half) !== foboar.end();
+  return !possible_sums_set.find(half).equals(possible_sums_set.end());
 }
 
 const inputs: [number[], boolean][] = [
