@@ -349,3 +349,19 @@ const post_order_traversal = (node: TreeNode, depth: number = 0): number => {
   return Math.max(depth, deepest_left, deepest_right);
 };
 ```
+
+## Number to Digits
+
+```TypeScript
+let remainder = num;
+const digits: number[] = [];
+
+while (remainder > 0) {
+  digits.push(remainder % 10);
+  remainder = Math.floor(remainder / 10);
+}
+
+digits.reverse();
+
+console.log("digits", digits);
+```
