@@ -1,5 +1,35 @@
 # Templates
 
+## Scaffolding
+
+```TypeScript
+import { expect, test, describe } from "vitest";
+
+function solution_function(n: number): number {
+  return -1;
+}
+
+type SolutionFunction = typeof solution_function;
+
+type TestCase = {
+  input: Parameters<SolutionFunction>;
+  expected_result: ReturnType<SolutionFunction>;
+};
+
+const test_cases: TestCase[] = [
+  { input: [1], expected_result: 1 },
+  { input: [2], expected_result: 1 },
+];
+
+const solutions = [{ name: "solution_function", fn: solution_function }];
+
+describe.for(test_cases)("$input => $expected_result", ({ input, expected_result }) => {
+  test.for(solutions)("$name", ({ fn }) => {
+    expect(fn(...input)).toStrictEqual(expected_result);
+  });
+});
+```
+
 ## Matrix / Grid
 
 ```TypeScript
@@ -376,4 +406,11 @@ for (const num of nums) {
 }
 
 console.log("nums_frequencies", nums_frequencies);
+```
+
+## Triangle Numbers
+
+```TypeScript
+// Produces sequence 0, 1, 3, 6, 10, 15, 21...
+const triangle_num = (n * (n + 1)) / 2;
 ```
