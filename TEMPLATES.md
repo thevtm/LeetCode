@@ -365,3 +365,15 @@ digits.reverse();
 
 console.log("digits", digits);
 ```
+
+## Frequency Count
+
+```TypeScript
+const nums_frequencies = new Map<number, number>();
+
+for (const num of nums) {
+  nums_frequencies.set(num, (nums_frequencies.get(num) ?? 0) + 1);
+}
+
+console.log("nums_frequencies", nums_frequencies);
+```
