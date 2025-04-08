@@ -10,5 +10,5 @@ Repository containing my solutions for LeetCode problems.
 
 ## Usage
 
-Test files can be run using the following command `npm test -- ./src/example.test.ts`.
+Test files can be run using the following command `npm vitest ./src/example.test.ts`.
 Non test files can only be ran in the LeetCode environment.
