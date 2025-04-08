@@ -6,6 +6,9 @@
   "author": "Vinícius Manjabosco <thevtm@gmail.com>",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
   "dependencies": {
     "@datastructures-js/deque": "^1.0.4",
     "@datastructures-js/priority-queue": "^6.3.2",
@@ -15,6 +18,7 @@
     "js-sdsl": "^4.4.2",
     "lodash": "^4.17.21",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^3.1.1"
   }
 }
