@@ -21,7 +21,7 @@ const test_cases: TestCase[] = [
   { input: [2], expected_result: 1 },
 ];
 
-const solutions = [{ name: "solution_function", fn: solution_function }];
+const solutions = [{ name: "best", fn: solution_function }];
 
 describe.for(test_cases)("$input => $expected_result", ({ input, expected_result }) => {
   test.for(solutions)("$name", ({ fn }) => {
@@ -383,17 +383,10 @@ const post_order_traversal = (node: TreeNode, depth: number = 0): number => {
 ## Number to Digits
 
 ```TypeScript
-let remainder = num;
-const digits: number[] = [];
-
-while (remainder > 0) {
-  digits.push(remainder % 10);
-  remainder = Math.floor(remainder / 10);
-}
-
-digits.reverse();
-
-console.log("digits", digits);
+const num_to_digits = (num: number): number[] => {
+  const digits_count = num === 0 ? 0 : Math.floor(Math.log10(num)) + 1;
+  return Array.from({ length: digits_count }, (_, i) => Math.floor(num / 10 ** (digits_count - i - 1)) % 10);
+};
 ```
 
 ## Frequency Count
