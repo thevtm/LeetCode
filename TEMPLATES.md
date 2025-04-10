@@ -407,3 +407,7 @@ console.log("nums_frequencies", nums_frequencies);
 // Produces sequence 0, 1, 3, 6, 10, 15, 21...
 const triangle_num = (n * (n + 1)) / 2;
 ```
+
+## Digits DP
+
+- See `src/Sphere Online Judge/PR003004 - Digit Sum.test.ts`
