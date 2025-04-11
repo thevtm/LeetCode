@@ -380,6 +380,12 @@ const post_order_traversal = (node: TreeNode, depth: number = 0): number => {
 };
 ```
 
+## Count Digits
+
+```TypeScript
+const count_digits = (num: number) => (num === 0 ? 0 : Math.floor(Math.log10(num)) + 1);
+```
+
 ## Number to Digits
 
 ```TypeScript
