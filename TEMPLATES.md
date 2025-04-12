@@ -417,3 +417,15 @@ const triangle_num = (n * (n + 1)) / 2;
 ## Digits DP
 
 - See `src/Sphere Online Judge/PR003004 - Digit Sum.test.ts`
+
+## Factorial
+
+```TypeScript
+const factorial = _.memoize((n: number) => n * factorial(n - 1));
+factorial.cache.set(0, 1);
+```
+
+```TypeScript
+// We only need FACTORIAL(0...10)
+const FACTORIAL = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800];
+```
