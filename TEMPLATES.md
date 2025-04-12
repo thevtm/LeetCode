@@ -429,3 +429,19 @@ factorial.cache.set(0, 1);
 // We only need FACTORIAL(0...10)
 const FACTORIAL = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800];
 ```
+
+## Permutation
+
+```TypeScript
+// Permutations = n! / (f0! * f1! * ... fx!)
+const factorial_frequencies_sum = frequencies.reduce((acc, f) => acc * FACTORIAL[f], 1);
+
+const total_permutations = FACTORIAL[n] / factorial_frequencies_sum;
+
+// Handle leading zeros
+const zeros = frequencies[0];
+const leading_0_permutations =
+  zeros === 0 ? 0 : FACTORIAL[n - 1] / (factorial_frequencies_sum / (FACTORIAL[zeros] / FACTORIAL[zeros - 1]));
+
+count += total_permutations - leading_0_permutations;
+```
