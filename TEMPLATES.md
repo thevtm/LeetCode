@@ -445,3 +445,27 @@ const leading_0_permutations =
 
 count += total_permutations - leading_0_permutations;
 ```
+
+## Count Sub Arrays / Window Algorithm
+
+```TypeScript
+let count = 0;
+let left = 0;
+
+for (let right = 0; right < nums.length; right++) {
+  const right_num = nums[right];
+
+  // "Add" right element
+
+  while (condition === true && left <= right) {
+    const left_num = nums[left++];
+
+    // "Remove" left element
+
+    count++
+
+    // \/ OR when all sub arrays from start are also valid \/
+    count += nums.length - right;
+  }
+}
+```
