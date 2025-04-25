@@ -469,3 +469,16 @@ for (let right = 0; right < nums.length; right++) {
   }
 }
 ```
+
+## Prefix Sum
+
+```TypeScript
+const prefix_sum = new Array<number>(nums.length);
+prefix_sum[0] = nums[0];
+
+for (let i = 1; i < nums.length; i++) {
+  prefix_sum[i] = nums[i] + prefix_sum[i - 1];
+}
+
+console.log("prefix_sum", prefix_sum);
+```
