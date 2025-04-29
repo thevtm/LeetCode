@@ -467,6 +467,9 @@ for (let right = 0; right < nums.length; right++) {
     // \/ OR when all sub arrays from start are also valid \/
     count += nums.length - right;
   }
+
+  // \/ Also works
+  count += left;
 }
 ```
 
