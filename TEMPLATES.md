@@ -473,6 +473,29 @@ for (let right = 0; right < nums.length; right++) {
 }
 ```
 
+```TypeScript
+let count = 0;
+
+let last_index_where_condition_a_was_true = -1;
+let last_index_where_condition_b_was_true = -1;
+
+// Elements before this should not be include in the sub array
+let last_excluded_index = -1;
+
+for (let i = 0; i < nums.length; i++) {
+  const num = nums[i];
+
+  if (condition_a) last_index_where_condition_a_was_true = i;
+  if (condition_b) last_index_where_condition_b_was_true = i;
+
+  if (num_should_be_excluded) last_excluded_index = i;
+
+  const first_valid_window_index = Math.min(last_min_k_index, last_max_k_index);
+
+  count += Math.max(0, first_valid_window_index - last_excluded_index);
+}
+```
+
 ## Prefix Sum
 
 ```TypeScript
