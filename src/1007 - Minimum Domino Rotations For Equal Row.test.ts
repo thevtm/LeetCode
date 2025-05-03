@@ -1,4 +1,4 @@
-export {}; // Necessary in order to avoid TS errors
+import { expect, test, describe } from "vitest";
 
 // There are 4 possible outcomes
 // 0 = Initial Domino
@@ -75,3 +75,35 @@ function minDominoRotations(tops: number[], bottoms: number[]): number {
     !matchingBottom ? Infinity : n - doubles - bottomRotations
   );
 }
+
+type SolutionFunction = typeof minDominoRotations;
+
+type TestCase = {
+  input: Parameters<SolutionFunction>;
+  expected_result: ReturnType<SolutionFunction>;
+};
+
+const test_cases: TestCase[] = [
+  {
+    input: [
+      [2, 1, 2, 4, 2, 2],
+      [5, 2, 6, 2, 3, 2],
+    ],
+    expected_result: 2,
+  },
+  {
+    input: [
+      [3, 5, 1, 2, 3],
+      [3, 6, 3, 3, 4],
+    ],
+    expected_result: -1,
+  },
+];
+
+const solutions = [{ name: "best", fn: minDominoRotations }];
+
+describe.for(test_cases)("$input => $expected_result", ({ input, expected_result }) => {
+  test.for(solutions)("$name", ({ fn }) => {
+    expect(fn(...input)).toStrictEqual(expected_result);
+  });
+});
