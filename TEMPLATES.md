@@ -398,6 +398,11 @@ const num_to_digits = (num: number): number[] => {
 ## Frequency Count
 
 ```TypeScript
+const freq = _.countBy(dominoes, (x) => Math.abs(x));
+console.log("freq", freq)
+```
+
+```TypeScript
 const nums_frequencies = new Map<number, number>();
 
 for (const num of nums) {
