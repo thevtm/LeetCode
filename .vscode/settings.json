@@ -1,4 +1,6 @@
 {
   "cSpell.words": ["nums", "subarrays"],
-  "github.copilot.editor.enableAutoCompletions": false
+  "github.copilot.enable": {
+    "*": false
+  }
 }
