@@ -34,6 +34,67 @@ describe.for(test_cases)("$input => $expected_result", ({ input, expected_result
 
 ```TypeScript
 const matrix = Array.from({ length: n }, () => Array<number>(n + 1));
+const make_matrix = (rows: number, cols: number): number[][] =>
+  Array.from({ length: rows }, () => Array<number>(cols).fill(0));
+```
+
+### Identity Matrix
+
+```TypeScript
+const make_identity_matrix = (size: number): number[][] => {
+  const matrix = make_matrix(size, size);
+
+  for (let i = 0; i < size; i++) {
+    matrix[i][i] = 1;
+  }
+
+  return matrix;
+};
+```
+
+### Dot Product
+
+```TypeScript
+const matrix_dot_product = (a: number[][], b: number[][]): number[][] => {
+  const rows = a.length;
+  const cols = b[0].length;
+
+  if (a[0].length !== b.length) throw "Incompatible dimensions";
+
+  const result_matrix = make_matrix(rows, cols);
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      for (let k = 0; k < b.length; k++) {
+        result_matrix[i][j] += result_matrix[i][j] + a[i][k] * b[k][j];
+      }
+    }
+  }
+
+  return result_matrix;
+};
+```
+
+### Matrix Fast Exponentiation
+
+```TypeScript
+const matrix_fast_exponentiation = (base: bigint[][], exponent: bigint, modulus: bigint): bigint[][] => {
+  const size = base.length;
+
+  let result = make_identity_matrix(size);
+
+  while (exponent > 0) {
+    if (exponent % 2n === 1n) {
+      result = matrix_dot_product(result, base);
+    }
+
+    base = matrix_dot_product(base, base);
+    exponent >>= 1n;
+  }
+
+  return result;
+};
+
 ```
 
 ## Binary Search
@@ -360,7 +421,7 @@ const fast_modular_exponentiation = (base: bigint, exponent: bigint, modulus: bi
     }
 
     base = (base * base) % modulus;
-    exponent /= 2n;
+    exponent >>= 1n;
   }
 
   return result;
