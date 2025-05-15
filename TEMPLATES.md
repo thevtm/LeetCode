@@ -574,3 +574,18 @@ for (let i = 1; i < nums.length; i++) {
 
 console.log("prefix_sum", prefix_sum);
 ```
+
+## Hamming Distance
+
+```TypeScript
+const hamming_distance = (a: string, b: string): number => {
+  const min_length = Math.min(a.length, b.length);
+  let distance = Math.max(a.length, b.length);
+
+  for (let i = 0; i < min_length; i++) {
+    if (a[i] === b[i]) distance--;
+  }
+
+  return distance;
+};
+```
