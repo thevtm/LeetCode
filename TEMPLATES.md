@@ -30,6 +30,15 @@ describe.for(test_cases)("$input => $expected_result", ({ input, expected_result
 });
 ```
 
+## List Node
+
+```TypeScript
+interface ListNode {
+  val: number;
+  next: ListNode | null;
+}
+```
+
 ## Matrix / Grid
 
 ```TypeScript
