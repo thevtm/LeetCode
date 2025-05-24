@@ -19,6 +19,7 @@ type TestCase = {
 const test_cases: TestCase[] = [
   { input: [1], expected_result: 1 },
   { input: [2], expected_result: 1 },
+  { input: [3], expected_result: 1 },
 ];
 
 const solutions = [{ name: "best", fn: solution_function }];
