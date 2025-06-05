@@ -250,6 +250,7 @@ for (const [a, b, w] of edges) {
 ### Union Find / Disjointed Union Set
 
 - [Disjoint Set - LeetCode](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/)
+- Graph Group / Merge
 
 ```TypeScript
 const nodes_count = isConnected.length;
