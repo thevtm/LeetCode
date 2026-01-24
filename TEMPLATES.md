@@ -467,6 +467,12 @@ const num_to_digits = (num: number): number[] => {
 };
 ```
 
+## Digits to Number
+
+```TypeScript
+const digits_to_num = (digits: number[]): number => digits.reduce((acc, x) => acc * 10 + x, 0);
+```
+
 ## Frequency Count
 
 ```TypeScript
