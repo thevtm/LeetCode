@@ -31,12 +31,25 @@ describe.for(test_cases)("$input => $expected_result", ({ input, expected_result
 });
 ```
 
-## List Node
+## Linked List
 
 ```TypeScript
 interface ListNode {
   val: number;
   next: ListNode | null;
+}
+
+function array_to_linked_list(array: number[]): ListNode | null {
+  if (array.length === 0) return null;
+
+  const head: ListNode = { val: array[0], next: null };
+  let last = head;
+
+  for (let i = 1; i < array.length; i++) {
+    last = last.next = { val: array[i], next: null };
+  }
+
+  return head;
 }
 ```
 
