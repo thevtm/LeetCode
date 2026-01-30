@@ -126,15 +126,15 @@ const matrix_fast_exponentiation = (base: bigint[][], exponent: bigint, modulus:
 
 ```TypeScript
 function binary_search_template_1(nums: number[], target: number): number {
-  let start = 0;
+  let begin = 0;
   let end = nums.length - 1;
 
-  while (start <= end) {
-    const middle_index = Math.floor((end + start) / 2);
+  while (begin <= end) {
+    const middle_index = Math.floor((end + begin) / 2);
     const middle_num = nums[middle_index];
 
     if (middle_num === target) return middle_index;
-    else if (middle_num < target) start = middle_index + 1;
+    else if (middle_num < target) begin = middle_index + 1;
     else end = middle_index - 1;
   }
 
