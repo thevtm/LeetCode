@@ -1,0 +1,7 @@
+-- Write your PostgreSQL query statement below
+
+SELECT
+  *
+FROM Users
+WHERE
+  mail ~ '^[A-Z|a-z][A-Z|a-z|0-9|_|\.|-]*@leetcode\.com$'
