@@ -619,3 +619,9 @@ const hamming_distance = (a: string, b: string): number => {
   return distance;
 };
 ```
+
+## Greatest Common Divisor (GCD)
+
+```TypeScript
+const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+```
