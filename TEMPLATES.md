@@ -625,3 +625,18 @@ const hamming_distance = (a: string, b: string): number => {
 ```TypeScript
 const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
 ```
+
+## Count Bits
+
+```TypeScript
+const count_bits = (num: number): number => {
+  let bits = 0;
+
+  while (num > 0) {
+    num &= num - 1;
+    bits++;
+  }
+
+  return bits;
+};
+```
