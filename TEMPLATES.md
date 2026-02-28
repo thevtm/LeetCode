@@ -640,3 +640,11 @@ const count_bits = (num: number): number => {
   return bits;
 };
 ```
+
+## Left / Most Significant Bit
+
+```TypeScript
+const most_significant_bit = (num: number): number => {
+  return 1 << (31 - Math.clz32(num));
+};
+```
