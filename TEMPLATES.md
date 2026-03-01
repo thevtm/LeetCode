@@ -626,25 +626,12 @@ const hamming_distance = (a: string, b: string): number => {
 const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
 ```
 
-## Count Bits
-
-```TypeScript
-const count_bits = (num: number): number => {
-  let bits = 0;
-
-  while (num > 0) {
-    num &= num - 1;
-    bits++;
-  }
-
-  return bits;
-};
-```
-
 ## Left / Most Significant Bit
+
+- Count Bits
 
 ```TypeScript
 const most_significant_bit = (num: number): number => {
-  return 1 << (31 - Math.clz32(num));
+  return 31 - Math.clz32(num);
 };
 ```
